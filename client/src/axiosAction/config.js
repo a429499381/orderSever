@@ -16,6 +16,7 @@ const service = axios.create({
   // withCredentials: true, // 是否允许带cookie这些
   headers: {
     "Content-Type": "application/json;charset=utf-8",
+    'Authorization': '',
     // "Access-Control-Allow-Credentials": true,
   },
   validateStatus: function(status) {

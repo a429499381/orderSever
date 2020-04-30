@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Login from '../views/login.vue'
 import User from '../views/user.vue'
 import info from '../components/info..vue'
+import { getToken } from '../../token'
 
 Vue.use(VueRouter)
 
@@ -17,12 +18,13 @@ const routes = [{
     name: 'Login',
     component: Login,
     beforeEnter: (to, from, next) => {
-      let token = localStorage.getItem('token') 
+      let token = getToken()
       if (!token) {
          next()
       }
       if (token) {
         // localStorage.removeItem('token')
+        // console.log('beforeEnter login', token)
         next('/user')
       }
     },
@@ -33,7 +35,7 @@ const routes = [{
     component: User,
     // 页面路由 检测
     beforeEnter: (to, from, next) => {
-      let token = localStorage.getItem('token')
+      let token = getToken()
       if (!token) {
          next('/login')
       }

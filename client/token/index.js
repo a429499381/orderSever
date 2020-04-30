@@ -5,3 +5,8 @@ export const getToken = () => {
   const token = store.state.token || localToken
    return token
 }
+
+export const remove = (key = 'token') => {
+  localStorage.removeItem(key)
+  store.state.token = ''
+}
