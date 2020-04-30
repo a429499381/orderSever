@@ -18,7 +18,7 @@
   </div>
 </template>
 <script>
-import { register } from "../axiosAction/register.js";
+import { login } from "../axiosAction/register.js";
 export default {
   data() {
     return {
@@ -33,11 +33,19 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          console.log(valid);
-      
-
-          register(this.UserData).then((res) => {
+          login(this.UserData).then((res) => {
             console.log("res", res);
+            if(res.success) {
+              // 成功获取 保存与 vuex 中
+              this.$store.state.token = res.token
+              // 保存到本地
+              localStorage.setItem('token', res.token)
+              // 路由跳转
+              this.$router.push({
+                path: '/users'
+              })
+            }
+
           });
         } else {
           console.log("error submit!!");

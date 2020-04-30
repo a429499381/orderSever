@@ -6,20 +6,15 @@ export function register(obj) {
     url: '/register',
     method: 'post',
     data: obj,
-    validateStatus: function(status) {
-      return status >= 200 && status < 500; // default
-    },
+  
   })
 }
 
 export function login(obj) {
   return service({
-    url: '/register',
+    url: '/login',
     method: 'post',
     data: obj,
-    validateStatus: function(status) {
-      return status >= 200 && status < 500; // default
-    },
   })
 }
 
