@@ -38,7 +38,7 @@ export default {
           login(this.UserData).then((res) => {
             console.log("res", res);
            
-            if(res && res.success) {
+            if(res && res.data && res.data.success) {
               // 成功获取 保存与 vuex 中
               this.$store.state.token = res.token
               // 保存到本地
@@ -49,9 +49,10 @@ export default {
               this.$router.push({
                 path: '/user'
               })
+              return true
             }
 
-             if(!res.success) {
+             if(!res.data.success) {
                error(res.data.email)
               return false
             }
@@ -67,6 +68,19 @@ export default {
     reg() {
       register(this.UserData).then((res) => {
         console.log(res)
+        // 注册成功
+        if(res && res.status === 200) {
+          this.$router.push({
+            path: '/login'
+          })
+          return true
+        }
+        // 已经注册过了
+        if(res && res.status > 200) {
+          error(res.data.email)
+          return false
+        }
+
       })
     }
   }

@@ -55,18 +55,18 @@ service.interceptors.request.use(
     return Promise.reject(error);
   })
 
-  service.interceptors.response.use(
-    (config) => {
-      if(config.status === 200) {
-        return config.data
-      }
-      if(config.status > 200) {
-        // 如果大于200 直接返回状态码
-        // console.warn(config.status)
-        return config
-      }
-    }
-  )
+  // service.interceptors.response.use(
+  //   (config) => {
+  //     if(config.status === 200) {
+  //       return config.data
+  //     }
+  //     if(config.status > 200) {
+  //       // 如果大于200 直接返回状态码
+  //       // console.warn(config.status)
+  //       return config
+  //     }
+  //   }
+  // )
 
 
   export default  service 
