@@ -42,7 +42,7 @@ export default {
               localStorage.setItem('token', res.token)
               // 路由跳转
               this.$router.push({
-                path: '/users'
+                path: '/user'
               })
             }
 
