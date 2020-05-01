@@ -6,6 +6,11 @@ export const getToken = () => {
    return token
 }
 
+export const setToken = (obj) => {
+  const localToken = localStorage.setItem('token', obj)
+  return store.state.token  = localToken
+}
+
 export const remove = (key = 'token') => {
   localStorage.removeItem(key)
   store.state.token = ''
