@@ -1,12 +1,19 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/about">About</router-link>
-      <router-link to="/login">login</router-link>
-      <router-link to="/user">user</router-link>
+      <van-row>
+        <van-col span="8">
+          <router-link to="/">微信</router-link>
+        </van-col>
+        <van-col span="8">
+          <router-link to="/about">订单</router-link>
+        </van-col>
+        <van-col span="8">
+          <router-link to="/user">我的</router-link>
+        </van-col>
+      </van-row>
     </div>
-  
+
     <transition enter-active-class="animated fadeIn">
       <router-view />
     </transition>
@@ -23,10 +30,13 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #80ff80;
+   height:100%;
+    display:flex;
+    flex-direction:column;
 }
-
 #nav {
   padding: 30px;
+   /* flex：0 0 auto; */
 }
 
 #nav a {
