@@ -13,7 +13,11 @@ axios.defaults.baseURL='http://localhost:3000/api/users';
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css';
 import animated from 'animate.css' // npm install animate.css --save安装，再引入
+import Vant from 'vant';
+import 'vant/lib/index.css';
+
 Vue.config.productionTip = false
+Vue.use(Vant);
 Vue.use(ElementUI)
 Vue.use(animated)
 Vue.use(VueAxios, axios)
