@@ -14,15 +14,22 @@
       </van-row>
     </div>
 
-    <transition enter-active-class="animated fadeIn">
-      <router-view />
-    </transition>
+    <div id="con">
+      <transition  enter-active-class="animated fadeIn">
+             <router-view />
+        </transition>
+    </div>
+   
   </div>
 </template>
 
 <style>
-html {
+html body {
   background: #160e0e;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -30,13 +37,22 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #80ff80;
-   height:100%;
+   min-height: 100vh;
+   width: 100%;
     display:flex;
-    flex-direction:column;
+    flex-direction:column-reverse;
+    align-items: center;
+    /* justify-content: center; */
+
+}
+#con {
+  min-height: 50vh;
+ 
 }
 #nav {
-  padding: 30px;
-   /* flex：0 0 auto; */
+  width: 100%;
+  line-height: 40px;
+  
 }
 
 #nav a {
