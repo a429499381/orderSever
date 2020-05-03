@@ -1,21 +1,22 @@
 <template>
   <div id="app">
+    <!-- 导航 -->
     <div id="nav">
       <van-row>
-        <van-col span="8">
+        <van-col span="8" @click="go(1)">
           <router-link to="/">微信</router-link>
         </van-col>
-        <van-col span="8">
+        <van-col span="8" @click="go(2)">
           <router-link to="/about">订单</router-link>
         </van-col>
-        <van-col span="8">
+        <van-col span="8" @click="go(3)">
           <router-link to="/user">我的</router-link>
         </van-col>
       </van-row>
     </div>
-
+    <!-- 主题内容 -->
     <div id="con">
-      <transition  enter-active-class="animated fadeIn">
+      <transition  enter-active-class="animated fadeInLeft">
              <router-view />
         </transition>
     </div>
@@ -23,13 +24,31 @@
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      oldKey: 1,
+    }
+  },
+  methods: {
+    go(newKey) {
+        console.log(this.oldKey, newKey)
+       if( this.oldKey > newKey) {
+          this.oldKey = newKey
+         console.log('left1', )
+       } else  {
+          this.oldKey = newKey
+         console.log('right')
+       }
+    },
+  }
+}
+</script>
+
 <style>
 html body {
   background: #160e0e;
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -62,7 +81,6 @@ html body {
 
 }
 #con {
-  /* min-height: 50vh; */
   flex: 1;
   display: flex;
   width: 100%;
