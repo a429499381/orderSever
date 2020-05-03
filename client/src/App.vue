@@ -40,14 +40,34 @@ html body {
    min-height: 100vh;
    width: 100%;
     display:flex;
+    flex-wrap: wrap;
     flex-direction:column-reverse;
     align-items: center;
     /* justify-content: center; */
+    /*父元素常见属性*/
+    /*设置主轴的方向*/
+    /*flex-direction：  row行,column列*/
+    /*设置主轴上的子元素排列方式*/
+    /*justify-content： space-around平分,space-between两边贴中间平分,space-evenly每个间距相同*/
+    /*设置子元素是否换行*/
+    /*flex-wrap：wrap/nowrap*/
+    /*设置侧轴上的子元素排列方式（单行）*/
+    /*align-items：stretch 拉伸*/
+    /*设置侧轴上的子元素的排列方式（多行）*/
+    /*align-content：stretch 子元素高度平分父元素高度*/
+    /*flex-flow：复合属性，相当于同时设置了 flex-direction 和 flex-wrap*/
+    /*子元素常见属性*/
+    /*align-self 子元素自己在侧轴的排列方式*/
+    /*order 属性定义子项的排列顺序(前后顺序) */
 
 }
 #con {
-  min-height: 50vh;
- 
+  /* min-height: 50vh; */
+  flex: 1;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
 #nav {
   width: 100%;
