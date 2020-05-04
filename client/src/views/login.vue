@@ -29,13 +29,14 @@ import {login} from '../axiosAction/request';
 export default {
   data() {
     return {
-      name: 'xutao@qq.com11',
+      name: 'xutao@qq.com',
       password: '123456',
     };
   },
   methods: {
    async onSubmit(value) {
         console.log(value)
+        // register(value)
         const res = await login(value)
         console.log('result', res)
         if(res.status === 200) {
@@ -45,7 +46,9 @@ export default {
 
           console.log(this.isNull(resloveToken))
            // 存储token
-           this.$stroe.dispath('setAuthen', !this.isNull(resloveToken))
+           this.$store.state.isAuthen = true
+          //  this.$stroe.dispath('setAuthen', !this.isNull(resloveToken))
+          //  this.$stroe.dispath('setUser', resloveToken)
            return true
         }
         if(res.status) {

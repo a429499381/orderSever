@@ -43,10 +43,12 @@ const mutations = {
 
 const actions = {
   setAuthen: ({commit}, isAuthen) => {
-    commit(types.SET_AUTHENTICATED, isAuthen)
+    console.log('actions setAuthen', commit, isAuthen)
+    // commit(types.SET_AUTHENTICATED, isAuthen)
   },
   setUser: ({commit}, user) => {
-    commit(types.SET_USER, user)
+     console.log('acitons setUser', commit, user)
+    // commit(types.SET_USER, user)
   },
 }
 
