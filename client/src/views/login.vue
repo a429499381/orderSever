@@ -42,13 +42,12 @@ export default {
         if(res.status === 200) {
           // 解析token
            let resloveToken = jwt_decode(res.data.token)
-           console.log(resloveToken)
+          //  console.log(resloveToken)
 
           console.log(this.isNull(resloveToken))
-           // 存储token
-           this.$store.state.isAuthen = true
-          //  this.$stroe.dispath('setAuthen', !this.isNull(resloveToken))
-          //  this.$stroe.dispath('setUser', resloveToken)
+           // 存储token        
+           this.$store.dispatch('setAuthen', !this.isNull(resloveToken))
+           this.$store.dispatch('setUser', resloveToken)
            return true
         }
         if(res.status) {

@@ -23,6 +23,7 @@ const getters = {
 
 const mutations = {
   [types.SET_AUTHENTICATED](state, isAuthen) {
+    // console.log('mutations setAuthen')
     if(isAuthen) {
       state.isAuthen = isAuthen
     } 
@@ -32,6 +33,8 @@ const mutations = {
   },
 
   [types.SET_USER](state, user) {
+    // console.log('mutations  setUser',state, user)
+
     if(user) {
       state.user = user
     }
@@ -43,12 +46,12 @@ const mutations = {
 
 const actions = {
   setAuthen: ({commit}, isAuthen) => {
-    console.log('actions setAuthen', commit, isAuthen)
-    // commit(types.SET_AUTHENTICATED, isAuthen)
+    // console.log('actions setAuthen', commit, isAuthen)
+    commit(types.SET_AUTHENTICATED, isAuthen)
   },
   setUser: ({commit}, user) => {
-     console.log('acitons setUser', commit, user)
-    // commit(types.SET_USER, user)
+    //  console.log('acitons setUser', commit)
+    commit(types.SET_USER, user)
   },
 }
 
