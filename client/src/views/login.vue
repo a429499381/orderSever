@@ -35,10 +35,10 @@ export default {
   },
   methods: {
    async onSubmit(value) {
-        console.log(value)
+        // console.log(value)
         // register(value)
         const res = await login(value)
-        console.log('result', res)
+        // console.log('result', res)
         if(res.status === 200) {
           // 解析token
            let resloveToken = jwt_decode(res.data.token)
