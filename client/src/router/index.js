@@ -5,13 +5,18 @@ import Login from '../views/login.vue'
 import User from '../views/user.vue'
 import info from '../components/info..vue'
 import { getToken } from '../../token'
-
+import NotFound from '../views/404.vue';
 Vue.use(VueRouter)
 
 const routes = [{
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '*',
+    name: '/404',
+    component: NotFound,
   },
   {
     path: '/login',

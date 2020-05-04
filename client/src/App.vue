@@ -15,8 +15,11 @@
       </van-row>
     </div>
     <!-- 主题内容 -->
-    <div id="con" v-bind:class="{ active: isActive }">
-      <transition enter-active-class="animated fadeInLeft">
+    <div id="con">
+      <transition
+        enter-active-class="animated fadeInLeft"
+        leave-active-class="animated fadeOutLeft"
+      >
         <router-view />
       </transition>
     </div>
@@ -27,14 +30,13 @@
 export default {
   data() {
     return {
-      oldKey: 1,
-      isActive: true
+      oldKey: 1
     };
   },
   computed: {},
   methods: {
     go(newKey) {
-      // console.log(this.oldKey, newKey)
+      console.log(this.oldKey, newKey);
       if (this.oldKey > newKey) {
         this.oldKey = newKey;
         console.log("left1");
