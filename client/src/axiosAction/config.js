@@ -20,7 +20,8 @@ const service = axios.create({
     // "Access-Control-Allow-Credentials": true,
   },
   validateStatus: function(status) {
-    return status >= 200 && status < 500; // default
+    return status
+    // return status >= 200 && status < 500; // default
   }
 })
 

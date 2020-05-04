@@ -1,4 +1,4 @@
-import service from '../axiosAction/config.js'
+import service from './config.js'
 
 
 export function register(obj) {

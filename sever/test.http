@@ -6,14 +6,14 @@ POST  http://127.0.0.1:3000/api/users/login
 # content-type: application/json
 # Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTc2MDY2ZmJlZjZiMDZkMDI1ZDRiZCIsIm5hbWUiOiJ4dSIsImlhdCI6MTU4Njk3ODk3MSwiZXhwIjoxNTg2OTgyNTcxfQ.xxbBRkK6HXAafJD786hBVq0t-_Svgz_wWmc4QP6asvI
 
-# {
-#    "name": "xu",
-#    "email": "1531883@qq.com",
-#    "password": "123"
-# }
+{
+   "name": "xu",
+   "email": "1531883@qq.com",
+   "password": "123"
+}
 
 
-GET http://192.168.0.1/ HTTP/1.1
+# GET http://192.168.0.1/ HTTP/1.1
 
 
 #REST Client

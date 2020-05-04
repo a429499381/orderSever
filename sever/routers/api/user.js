@@ -17,7 +17,7 @@ const EXPORT = require('./userConfig.js').EXPORT
 
 router.post('/register', async (req, res) => {
   const email = req.body.email
-  // console.log('email', email)
+  console.log('email', req.body)
   if (!email) {
     return res.status(400).json('邮箱必填')
   }

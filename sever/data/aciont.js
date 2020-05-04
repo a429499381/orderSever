@@ -19,7 +19,7 @@ const userSchema = new mo.Schema({
     minlength: 6,
     maxlength: 16,
   },
-  emial: {
+  email: {
     type: String,
   },
   hobbies: [String],
