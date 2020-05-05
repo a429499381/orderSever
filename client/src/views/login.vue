@@ -53,6 +53,9 @@ export default {
         this.$store.dispatch("setUser", resloveToken);
         // 通知消息
         success('登陆成功')
+        this.$router.push({
+          path: '/user'
+        })
         return true;
       }
       if (res.status !== 200 && res.data) {

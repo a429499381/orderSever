@@ -27,11 +27,19 @@
 </template>
 
 <script>
+import { getToken } from '../token';
+import { success } from './message';
 export default {
   data() {
     return {
       oldKey: 1
     };
+  },
+  mounted() {
+    let token = getToken()
+    if(token) {
+        success('token ok')
+    }
   },
   computed: {},
   methods: {

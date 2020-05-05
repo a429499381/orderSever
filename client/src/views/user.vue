@@ -1,6 +1,6 @@
 <template>
  <div class="user">
-    <el-button type="primary" @click="submitForm()">退出</el-button>
+    <van-button type="primary" @click="submitForm()">退出</van-button>
  </div>
 </template>
 
