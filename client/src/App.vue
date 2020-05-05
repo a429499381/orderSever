@@ -67,7 +67,7 @@ html body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #80ff80;
-  min-height: 100vh;
+  min-height: 95vh;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
