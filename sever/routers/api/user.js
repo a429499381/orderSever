@@ -19,7 +19,10 @@ router.post('/register', async (req, res) => {
   const email = req.body.email
   console.log('email', req.body)
   if (!email) {
-    return res.status(201).json('邮箱必填')
+    return res.status(201).json({
+      text: '邮箱不能为空',
+      date: new Date,
+    })
   }
 
   const user = await User.findOne({
@@ -29,7 +32,7 @@ router.post('/register', async (req, res) => {
 
   if (user) {
     return res.status(202).json({
-      email: '邮箱已被注册',
+      text: '邮箱已被注册',
       date: new Date,
     })
   }
@@ -53,7 +56,7 @@ router.post('/register', async (req, res) => {
 
     // 保存加密后的数据到数据库  返回数据
     newUser.save()
-      .then((obj) => {  
+      .then((obj) => {
         res.json(EXPORT(obj))
       })
       .catch((err) => {
@@ -74,7 +77,7 @@ router.post('/login', async (req, res) => {
   // console.log(user)
   if (!user) {
     return res.status(201).json({
-      email: '用户不存在',
+      text: '用户不存在',
       date: new Date,
     })
   }
@@ -93,7 +96,7 @@ router.post('/login', async (req, res) => {
 
     if (!isMatch) {
       return res.status(202).json({
-        password: '密码错误',
+        text: '密码错误',
         date: new Date,
       })
     }
