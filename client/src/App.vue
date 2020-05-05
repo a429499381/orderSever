@@ -99,7 +99,7 @@ html body {
 }
 #nav {
   width: 100%;
-  line-height: 40px;
+  line-height: 70px;
 }
 
 #nav a {
