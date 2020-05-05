@@ -7,7 +7,7 @@ import { getToken } from '../../token';
 // import { getToken } from '@/utils/auth'   //引入拿到的权限tocken
 
 
-const URI = 'http://127.0.0.1:3000/api/users'
+const URI = ' http://192.168.0.103:3000/api/users'
 // create an axios instance   创建axios实例
 const service = axios.create({
   baseURL: URI, // api 的 base_url
