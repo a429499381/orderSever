@@ -2,14 +2,18 @@ import {
   Notify
 } from 'vant';
 
-export const Message = (text) => {
-  this.$notify({
-    type: 'primary',
-    message: text
-  });
+Notify.setDefaultOptions({
+  duration: 500,
+  className: 'order',
+})
+
+export const success = (text) => {
+  Notify({ type: 'success', message: text });
 }
 
-
+export const error = (text) => {
+  Notify({ duration: 3000, type: 'danger', message: text });
+}
 
 // 封装 消息
 // import {Message} from 'element-ui'

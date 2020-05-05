@@ -24,24 +24,20 @@
 </template>
 
 <script>
-import jwt_decode from 'jwt-decode';
-import {login} from '../axiosAction/request';
-import { setToken } from '../../token';
-import {Message} from '../message';
-// import { Notify } from 'vant';
+import jwt_decode from "jwt-decode";
+import { login } from "../axiosAction/request";
+import { setToken } from "../../token";
+import {error, success} from '../message';
 export default {
   data() {
     return {
       name: "xutao@qq.com",
-      password: '',
+      password: ""
     };
   },
   methods: {
     async onSubmit(value) {
       console.log(value);
-      // register(value)
-           Message(res.status.data)
-           this.$notify({ type: 'primary', message: '通知内容' });
 
       const res = await login(value);
       console.log("result", res);
@@ -50,16 +46,19 @@ export default {
         let resloveToken = jwt_decode(res.data.token);
         console.log(resloveToken);
 
-          console.log(this.isNull(resloveToken))
-           // 存储token        
-           setToken(res.data.token)
-           this.$store.dispatch('setAuthen', !this.isNull(resloveToken))
-           this.$store.dispatch('setUser', resloveToken)
-           return true
-        }
-        if(res.status !== 200 && res.status.data) {
-          console.log(res)
-        }
+        console.log(this.isNull(resloveToken));
+        // 存储token
+        setToken(res.data.token);
+        this.$store.dispatch("setAuthen", !this.isNull(resloveToken));
+        this.$store.dispatch("setUser", resloveToken);
+        // 通知消息
+        success('登陆成功')
+        return true;
+      }
+      if (res.status !== 200 && res.data) {
+        error(res.data.text)
+        console.log(res);
+      }
     },
     isNull(value) {
       return (
