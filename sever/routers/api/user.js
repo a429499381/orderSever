@@ -19,7 +19,7 @@ router.post('/register', async (req, res) => {
   const email = req.body.email
   console.log('email', req.body)
   if (!email) {
-    return res.status(400).json('邮箱必填')
+    return res.status(201).json('邮箱必填')
   }
 
   const user = await User.findOne({
@@ -28,7 +28,7 @@ router.post('/register', async (req, res) => {
   // console.log('findOne: ', user)
 
   if (user) {
-    return res.status(400).json({
+    return res.status(202).json({
       email: '邮箱已被注册',
       date: new Date,
     })
@@ -73,7 +73,7 @@ router.post('/login', async (req, res) => {
   // .then((user) => {
   // console.log(user)
   if (!user) {
-    return res.status(404).json({
+    return res.status(201).json({
       email: '用户不存在',
       date: new Date,
     })
@@ -92,7 +92,7 @@ router.post('/login', async (req, res) => {
     }
 
     if (!isMatch) {
-      return res.status(400).json({
+      return res.status(202).json({
         password: '密码错误',
         date: new Date,
       })
