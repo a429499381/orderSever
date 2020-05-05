@@ -27,6 +27,8 @@
 import jwt_decode from 'jwt-decode';
 import {login} from '../axiosAction/request';
 import { setToken } from '../../token';
+import {Message} from '../message';
+// import { Notify } from 'vant';
 export default {
   data() {
     return {
@@ -38,6 +40,9 @@ export default {
     async onSubmit(value) {
       console.log(value);
       // register(value)
+           Message(res.status.data)
+           this.$notify({ type: 'primary', message: '通知内容' });
+
       const res = await login(value);
       console.log("result", res);
       if (res.status === 200) {
@@ -52,7 +57,7 @@ export default {
            this.$store.dispatch('setUser', resloveToken)
            return true
         }
-        if(res.status) {
+        if(res.status !== 200 && res.status.data) {
           console.log(res)
         }
     },
