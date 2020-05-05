@@ -24,13 +24,14 @@
 </template>
 
 <script>
-import jwt_decode from "jwt-decode";
-import { login } from "../axiosAction/request";
+import jwt_decode from 'jwt-decode';
+import {login} from '../axiosAction/request';
+import { setToken } from '../../token';
 export default {
   data() {
     return {
       name: "xutao@qq.com",
-      password: "123456"
+      password: '',
     };
   },
   methods: {
@@ -44,16 +45,16 @@ export default {
         let resloveToken = jwt_decode(res.data.token);
         console.log(resloveToken);
 
-        console.log(this.isNull(resloveToken));
-        // 存储token
-        this.$store.state.isAuthen = true;
-        //  this.$stroe.dispath('setAuthen', !this.isNull(resloveToken))
-        //  this.$stroe.dispath('setUser', resloveToken)
-        return true;
-      }
-      if (res.status) {
-        console.log(res);
-      }
+          console.log(this.isNull(resloveToken))
+           // 存储token        
+           setToken(res.data.token)
+           this.$store.dispatch('setAuthen', !this.isNull(resloveToken))
+           this.$store.dispatch('setUser', resloveToken)
+           return true
+        }
+        if(res.status) {
+          console.log(res)
+        }
     },
     isNull(value) {
       return (

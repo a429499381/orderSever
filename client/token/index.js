@@ -8,7 +8,8 @@ export const getToken = () => {
 
 export const setToken = (obj) => {
   const localToken = localStorage.setItem('token', obj)
-  return store.state.token  = localToken
+  return localToken
+  // return store.state.token  = localToken
 }
 
 export const remove = (key = 'token') => {
