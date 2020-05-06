@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <van-form @submit="onSubmit">
+    <van-form @submit="onSubmit" class="from-login">
       <van-field
         v-model="name"
         name="email"
@@ -74,3 +74,13 @@ export default {
   }
 };
 </script>
+
+<style >
+ .login {
+   flex: 1;
+   align-self: center;
+ }  
+ .from-login {
+    margin: 50px;
+ }
+</style>
