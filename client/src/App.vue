@@ -67,6 +67,7 @@ html body {
   display: flex;
 }
 #footer-nav {
+  background-color: rgb(17, 16, 16);
   position: absolute;
   bottom: 0;
   width: 100%;
