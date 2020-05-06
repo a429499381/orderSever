@@ -15,7 +15,7 @@
       </van-row>
     </div>
     <!-- 主题内容 -->
-    <transition enter-active-class="animated  pulse">
+    <transition enter-active-class="animated ">
       <router-view />
     </transition>
   </div>
